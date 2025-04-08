@@ -5,10 +5,11 @@ import { initialBoard, getNewBoard, PLAYER_BLACK, PLAYER_WHITE, EMPTY, HINT } fr
 import Board from './Board';
 import GameInfo from './GameInfo';
 import Tutorial from './Tutorial';
+import config from '../config';
 
-// Axios instance
+// Axios instance with baseURL from config
 const api = axios.create({
-  baseURL: 'http://localhost:8080'
+  baseURL: config.apiUrl
 });
 
 const ReversiGame = () => {
@@ -177,7 +178,6 @@ const ReversiGame = () => {
   // AI hamlesi yap
   const playAI = async (currentBoard) => {
     setLoading(true);
-    
     try {
       // AI hamlesi sırasında ipuçlarını temizle
       setHints([]);
@@ -193,20 +193,17 @@ const ReversiGame = () => {
         return;
       }
       
-      // URLSearchParams ile form verisi oluştur
-      const params = new URLSearchParams();
+      isLocked.current = true;
       
-      // Backend'in beklediği formatta her satırı virgülle ayırarak gönder
-      currentBoard.forEach(row => {
-        params.append('board[]', row.join(','));
-      });
-      
-      // Zorluk seviyesini ekle
-      params.append('difficulty', difficulty);
+      // JSON request için data hazırla
+      const data = {
+        board: currentBoard,
+        difficulty: difficulty
+      };
       
       // AI'dan hamle iste
-      const response = await api.post('/move', params, {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      const response = await api.post('/move', data, {
+        headers: { 'Content-Type': 'application/json' }
       });
       
       if (response.data && response.data.x !== undefined && response.data.y !== undefined) {

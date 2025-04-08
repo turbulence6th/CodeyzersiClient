@@ -6,6 +6,9 @@
   "scripts": {
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
+    "dev": "NODE_ENV=development webpack serve --mode development --open",
+    "prod": "NODE_ENV=production webpack --mode production",
+    "serve:prod": "NODE_ENV=production webpack serve --mode production --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["reversi", "othello", "game"],
