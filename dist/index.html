@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modern tasarımla geliştirilmiş Reversi (Othello) oyunu">
+  <meta name="keywords" content="reversi, othello, oyun, strateji, board game">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Reversi - Modern Strateji Oyunu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    /* Sayfa yüklenene kadar gösterilecek yüklenme animasyonu */
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(76, 175, 80, 0.2);
+      border-radius: 50%;
+      border-top-color: #4CAF50;
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Yükleme animasyonu -->
+  <div class="loading" id="loadingScreen">
+    <div class="loading-spinner"></div>
+  </div>
+  
+  <div id="root"></div>
+  <script src="bundle.js"></script>
+  <script>
+    // Sayfa yüklendiğinde yükleme ekranını kaldır
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('loadingScreen');
+      loader.style.opacity = '0';
+      setTimeout(function() {
+        loader.style.display = 'none';
+      }, 500);
+    });
+  </script>
+</body>
+</html> 
