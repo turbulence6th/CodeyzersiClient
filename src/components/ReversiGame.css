@@ -1,0 +1,124 @@
+.reversi-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background-color: var(--card-bg);
+}
+
+.game-container {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LANDSCAPE MODE - Yatay ekranlar için */
+@media (orientation: landscape) {
+  /* Geniş ekranlar */
+  @media (min-width: 1201px) {
+    .reversi-game {
+      max-width: 1200px;
+      padding: 30px;
+    }
+    
+    .game-container {
+      max-width: 1140px;
+    }
+  }
+  
+  /* Orta boyutlu ekranlar */
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .reversi-game {
+      max-width: 100%;
+      padding: 20px;
+    }
+    
+    .game-container {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+    }
+    
+    .board-container {
+      margin: 0 auto;
+    }
+  }
+  
+  /* Tablet yatay */
+  @media (max-width: 768px) {
+    .reversi-game {
+      max-width: 100%;
+      padding: 15px;
+    }
+    
+    .game-container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .board-container {
+      margin: 0 auto;
+    }
+  }
+}
+
+/* PORTRAIT MODE - Dikey ekranlar için */
+@media (orientation: portrait) {
+  /* Tablet ve küçük ekranlar */
+  @media (max-width: 1200px) {
+    .game-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .board-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .reversi-game {
+      padding: 20px;
+      max-width: 650px;
+    }
+  }
+
+  /* Mobil ekranlar */
+  @media (max-width: 480px) {
+    .reversi-game {
+      padding: 15px 10px;
+      max-width: 100%;
+    }
+  }
+} 

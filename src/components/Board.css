@@ -1,0 +1,51 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--board-bg);
+  border: 6px solid var(--board-border);
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  transform: perspective(1000px) rotateX(0deg);
+  transform-style: preserve-3d;
+  overflow: hidden;
+  min-width: 600px;
+  min-height: 600px;
+}
+
+.board:hover {
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.board-row {
+  display: flex;
+  flex: 1;
+}
+
+/* Responsive tasarım için tahta boyutunu ayarla */
+@media (max-width: 768px) {
+  .board {
+    min-width: 480px;
+    min-height: 480px;
+    border-width: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .board {
+    min-width: 360px;
+    min-height: 360px;
+    border-width: 4px;
+    margin-top: 15px;
+    transform: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .board {
+    min-width: 280px;
+    min-height: 280px;
+    border-width: 3px;
+  }
+} 

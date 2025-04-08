@@ -1,0 +1,376 @@
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tutorial-container {
+  width: 90%;
+  max-width: 700px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.4s ease-out;
+}
+
+.tutorial-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.tutorial-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.tutorial-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tutorial-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.tutorial-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.tutorial-image-placeholder {
+  width: 300px;
+  height: 300px;
+  background-color: var(--board-bg);
+  border: 4px solid var(--board-border);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.tutorial-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  text-align: center;
+  max-width: 600px;
+}
+
+.tutorial-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.tutorial-nav-button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tutorial-nav-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.tutorial-nav-button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.tutorial-progress {
+  display: flex;
+  gap: 8px;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.progress-dot.active {
+  background-color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.progress-dot:hover {
+  transform: scale(1.2);
+}
+
+.tutorial-diagram {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.tutorial-board {
+  width: 90%;
+  height: 90%;
+  background-color: var(--board-bg);
+  border-radius: 4px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 1px;
+}
+
+.tutorial-board::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent calc(12.5% - 1px),
+    rgba(0, 0, 0, 0.2) calc(12.5% - 1px),
+    rgba(0, 0, 0, 0.2) 12.5%
+  ),
+  repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(12.5% - 1px),
+    rgba(0, 0, 0, 0.2) calc(12.5% - 1px),
+    rgba(0, 0, 0, 0.2) 12.5%
+  );
+}
+
+/* Başlangıç tahtası */
+.board-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 4px;
+}
+
+.piece {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.piece.white {
+  background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+  border: 2px solid #eee;
+}
+
+.piece.black {
+  background: radial-gradient(circle at 30% 30%, #444, #000);
+  border: 2px solid #111;
+}
+
+/* Köşe vurgusu */
+.corner-highlight {
+  position: absolute;
+  width: 12.5%;
+  height: 12.5%;
+  background-color: rgba(255, 215, 0, 0.6);
+  z-index: 1;
+}
+
+.corner-highlight.tl {
+  top: 0;
+  left: 0;
+}
+
+.corner-highlight.tr {
+  top: 0;
+  right: 0;
+}
+
+.corner-highlight.bl {
+  bottom: 0;
+  left: 0;
+}
+
+.corner-highlight.br {
+  bottom: 0;
+  right: 0;
+}
+
+/* C-kareleri vurgusu */
+.c-square-highlight::before {
+  content: '';
+  position: absolute;
+  width: 12.5%;
+  height: 12.5%;
+  background-color: rgba(255, 0, 0, 0.4);
+  top: 12.5%;
+  left: 12.5%;
+  z-index: 1;
+}
+
+.c-square-highlight::after {
+  content: '';
+  position: absolute;
+  width: 12.5%;
+  height: 12.5%;
+  background-color: rgba(255, 0, 0, 0.4);
+  top: 0;
+  left: 12.5%;
+  z-index: 1;
+}
+
+/* Kenar vurgusu */
+.edge-highlight::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 12.5%;
+  background-color: rgba(0, 191, 255, 0.4);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* X-kareleri vurgusu */
+.x-square-highlight::before {
+  content: '';
+  position: absolute;
+  width: 12.5%;
+  height: 12.5%;
+  background-color: rgba(0, 255, 0, 0.4);
+  top: 25%;
+  left: 25%;
+  z-index: 1;
+}
+
+/* Açılış hamleleri */
+.opening-moves::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(0, 255, 0, 0.2);
+  top: 25%;
+  left: 25%;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Mobilite stratejisi */
+.mobility-arrow::before {
+  content: '';
+  position: absolute;
+  width: 40%;
+  height: 10%;
+  background-color: rgba(255, 255, 255, 0.6);
+  top: 45%;
+  left: 30%;
+  z-index: 1;
+  clip-path: polygon(0 40%, 90% 40%, 90% 0, 100% 50%, 90% 100%, 90% 60%, 0 60%);
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .tutorial-container {
+    padding: 20px;
+  }
+  
+  .tutorial-title {
+    font-size: 24px;
+  }
+  
+  .tutorial-image-placeholder {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .tutorial-text {
+    font-size: 14px;
+  }
+  
+  .tutorial-nav-button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tutorial-container {
+    padding: 15px;
+  }
+  
+  .tutorial-title {
+    font-size: 20px;
+  }
+  
+  .tutorial-image-placeholder {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .tutorial-text {
+    font-size: 13px;
+  }
+  
+  .tutorial-nav-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+} 
