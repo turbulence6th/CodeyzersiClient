@@ -68,7 +68,7 @@
   @media (min-width: 1201px) {
     .app {
       max-width: 1000px;
-      padding: 40px;
+      padding: 20px;
     }
     
     .content {
@@ -80,7 +80,7 @@
   @media (min-width: 769px) and (max-width: 1200px) {
     .app {
       max-width: 95%;
-      padding: 30px;
+      padding: 15px;
       border-radius: 15px;
     }
     
@@ -93,12 +93,12 @@
   @media (max-width: 768px) {
     .app {
       max-width: 100%;
-      padding: 20px;
+      padding: 10px;
       border-radius: 10px;
     }
     
     .header h1 {
-      font-size: 2.4rem;
+      font-size: 2rem;
     }
     
     .content {
@@ -112,12 +112,14 @@
   /* Tablet ve küçük ekranlar */
   @media (max-width: 1024px) {
     .app {
-      padding: 30px;
-      max-width: 90%;
+      padding: 15px;
+      max-width: 95%;
+      height: auto;
+      min-height: 100vh;
     }
     
     .header h1 {
-      font-size: 2.6rem;
+      font-size: 2.2rem;
     }
     
     .content {
@@ -128,13 +130,13 @@
   /* Mobil ekranlar */
   @media (max-width: 600px) {
     .app {
-      padding: 20px 10px;
+      padding: 10px;
       border-radius: 15px;
       max-width: 100%;
     }
     
     .header h1 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
     
     .content {
