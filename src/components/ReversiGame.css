@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 10px;
   transition: all 0.3s ease;
   animation: fadeIn 0.5s ease-in-out;
   border-radius: 10px;
@@ -16,7 +16,7 @@
 .game-container {
   display: flex;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 5px;
   justify-content: center;
 }
 
