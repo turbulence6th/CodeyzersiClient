@@ -1,6 +1,6 @@
 .cell {
-  width: 75px;
-  height: 75px;
+  flex: 1;
+  aspect-ratio: 1 / 1;
   border: 1px solid rgba(0, 0, 0, 0.2);
   position: relative;
   display: flex;
@@ -11,6 +11,7 @@
   cursor: pointer;
   overflow: hidden;
   perspective: 1000px;
+  container-type: inline-size;
 }
 
 .cell:hover {
@@ -18,8 +19,8 @@
 }
 
 .cell-piece {
-  width: 60px;
-  height: 60px;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
   position: relative;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
@@ -97,15 +98,15 @@
 
 .hint {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
   border: 3px solid rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 24px;
+  font-size: clamp(10px, 30cqi, 24px);
   color: white;
   text-shadow: 1px 1px 2px black;
   z-index: 4;
@@ -134,56 +135,6 @@
 }
 
 /* Responsive tasarım için hücre boyutları */
-@media (max-width: 768px) {
-  .cell {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .cell-piece {
-    width: 48px;
-    height: 48px;
-  }
-  
-  .hint {
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .cell {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .cell-piece {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .hint {
-    width: 36px;
-    height: 36px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 400px) {
-  .cell {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .cell-piece {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .hint {
-    width: 28px;
-    height: 28px;
-    font-size: 12px;
-  }
-} 
+/* @media (max-width: 768px) { ... } */
+/* @media (max-width: 600px) { ... } */
+/* @media (max-width: 400px) { ... } */ 

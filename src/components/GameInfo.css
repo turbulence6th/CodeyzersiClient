@@ -301,52 +301,84 @@
   box-shadow: 0 0 10px rgba(198, 40, 40, 0.5);
 }
 
-/* Responsive tasarım */
-@media (max-width: 768px) {
-  .score-display {
-    flex-direction: column;
-    gap: 15px;
+/* Mobil Cihazlar İçin Ayarlamalar */
+@media (max-width: 600px) {
+  .game-info {
+    margin-bottom: 10px;
+    gap: 10px;
   }
-  
-  .game-actions {
-    order: 3;
-    width: 100%;
-  }
-  
-  .action-button {
-    flex: 1;
-  }
-  
-  .difficulty-selector {
-    max-width: 100%;
-  }
-}
 
-@media (max-width: 480px) {
-  .score-card {
-    padding: 8px 12px;
+  .score-display {
+    padding: 8px;
+    gap: 8px;
+    justify-content: space-around;
   }
-  
+
+  .score-card {
+    padding: 8px 10px;
+    gap: 6px;
+    justify-content: center;
+    height: auto;
+    flex: 1;
+    min-width: 100px;
+  }
+
   .piece-icon {
     width: 24px;
     height: 24px;
   }
-  
+
   .score-value {
     font-size: 20px;
   }
-  
+
+  .game-actions {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
   .action-button {
     padding: 8px 12px;
     font-size: 12px;
+    flex: 1;
   }
-  
-  .difficulty-button {
-    padding: 6px 10px;
-    font-size: 12px;
+
+  .status-message {
+    height: auto;
+    padding: 8px 15px;
+    min-width: 0;
+    font-size: 14px;
+    text-align: center;
   }
-  
+
+  .turn-indicator {
+    width: 16px;
+    height: 16px;
+  }
+
+  .turn-info {
+    font-size: 14px;
+  }
+
+  .difficulty-selector {
+    padding: 8px;
+  }
+
   .difficulty-label {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .difficulty-buttons {
+    gap: 6px;
+  }
+
+  .difficulty-button {
+    padding: 8px 10px;
     font-size: 12px;
   }
-} 
+}
+
+/* Responsive tasarım */

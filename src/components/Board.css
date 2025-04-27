@@ -1,58 +1,40 @@
+/* Board Ana Konteyneri */
 .board {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Satırları dikey olarak sırala */
+  
+  /* Görsel Stiller */
   background-color: var(--board-bg);
   border: 4px solid var(--board-border);
   border-radius: 12px;
-  margin-top: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  transform: perspective(1000px) rotateX(0deg);
   transform-style: preserve-3d;
-  overflow: hidden;
-  min-width: 500px;
-  min-height: 500px;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Taşmaları engelle */
+  height: 100%;
+  aspect-ratio: 1 / 1;
 }
 
-.board:hover {
-  transform: perspective(1000px) rotateX(0deg);
-}
-
-.board-row {
-  display: flex;
-  flex: 1;
-}
-
-/* Responsive tasarım için tahta boyutunu ayarla */
-@media (max-width: 1200px) {
-  .board {
-    min-width: 450px;
-    min-height: 450px;
-  }
-}
-
-@media (max-width: 768px) {
-  .board {
-    min-width: 400px;
-    min-height: 400px;
-    border-width: 4px;
-  }
-}
-
+/* Responsive tasarım */
 @media (max-width: 600px) {
   .board {
-    min-width: 350px;
-    min-height: 350px;
-    border-width: 3px;
-    margin-top: 5px;
-    transform: none;
+    height: auto;
+    width: 100%;
+    border-width: 2px; /* Daha ince kenarlık */
   }
 }
 
-@media (max-width: 400px) {
-  .board {
-    min-width: 300px;
-    min-height: 300px;
-    border-width: 2px;
-  }
-} 
+
+
+/* Tahta Satırları */
+.board-row {
+  display: flex; /* Hücreleri yatayda sırala */
+}
+
+/* Eski media queryler ve yorumlar kaldırıldı */
+
+/* Responsive tasarım için tahta boyutunu ayarla - KALDIRILDI */
+/* @media (max-width: 1200px) { ... } */
+/* @media (max-width: 768px) { ... } */
+/* @media (max-width: 600px) { ... } */
+/* @media (max-width: 400px) { ... } */ 
