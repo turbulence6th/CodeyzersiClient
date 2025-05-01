@@ -11,8 +11,8 @@ const config = {
   },
   // Üretim ortamı ayarları
   production: {
-    apiUrl: 'https://codeyzersiserver.tail9fb8f4.ts.net',
-    baseUrl: 'https://codeyzersi.tail9fb8f4.ts.net',
+    apiUrl: 'https://reversi-server.codeyzer.com',
+    baseUrl: 'https://reversi.codeyzer.com',
   }
 };
 
