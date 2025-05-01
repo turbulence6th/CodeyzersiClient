@@ -45,7 +45,7 @@ module.exports = {
     proxy: isDevelopment ? {
       '/move': 'http://localhost:8080'
     } : {
-      '/move': 'https://codeyzersiserver.tail9fb8f4.ts.net'
+      '/move': 'https://reversi-server.codeyzer.com'
     }
   },
   // Development modunda source map ekle
